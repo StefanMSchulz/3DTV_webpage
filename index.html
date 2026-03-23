@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="3DTV: A Feedforward Interpolation Network for Real-Time View Synthesis">
+  <meta name="keywords" content="Nerfies, 3DTV, Novel View Synthesis, NVS, 3D Scene Representation, Depth Estimation, Feed-Forward Models">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3DTV: A Feedforward Interpolation Network for Real-Time View Synthesis</title>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!--script defer src="./static/js/fontawesome.all.min.js"></script-->
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  
+    
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">3DTV: A Feedforward Interpolation Network for Real-Time View Synthesis</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://scholar.google.de/citations?user=WEFLPx4AAAAJ&hl=de">Stefan Schulz</a>,</span>
+            <span class="author-block">
+              <a href="https://cg.cs.uni-bonn.de/people/fernando-edelstein">Fernando Edelstein</a>,</span>
+            <span class="author-block">
+              <a href="https://cg.cs.uni-bonn.de/people/hannah-droege">Hannah Dröge</a>,</span>
+            <span class="author-block">
+              <a href="https://cg.cs.uni-bonn.de/people/matthias-b-hullin">Matthias B. Hullin</a>,</span>
+            <span class="author-block">
+              <a href="https://cg.cs.uni-bonn.de/people/markus-plack">Markus Plack</a>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">University of Bonn</span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><a href="mailto://sschulz@cs.uni-bonn.de">sschulz@cs.uni-bonn.de</a></span>
+          </div>
+
+            <!-- TODO -->
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- <span class="link-block">
+                <a href="https://arxiv.org/pdf/2410.19746"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span> -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2410.19746"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!--
+              <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>-->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/StefanMSchulz/3DTV"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code (coming soon)</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <!-- <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/Metamizer Teaser.mp4"
+                type="video/mp4">
+      </video> -->
+      <img id="teaser" src="./static/images/teaser_3dtv.png">
+      <h2 class="subtitle has-text-centered">
+        We present <strong>3DTV</strong>, a real-time method for novel view synthesis from sparse cameras. 
+        It combines geometric view selection via Delaunay triangulation (left) with depth-guided feedforward synthesis and coarse-to-fine refinement (center), enabling novel views from only three input cameras at 40 FPS (1k resolution) without per-scene retraining. 
+        Compared to recent sparse-view synthesis methods such as GPS-Gaussian+, our approach is more stable and reduces artifacts (right).
+      </h2>
+      
+      
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{w2024metamizer,
+	title={Metamizer: a versatile neural optimizer for fast and accurate physics simulations},
+	author={Nils Wandel and Stefan Schulz and Reinhard Klein},
+	booktitle={International Conference on Learning Representations (ICLR)},
+	year={2025}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <!-- <a class="icon-link" href="https://arxiv.org/pdf/2410.19746">
+        <i class="fas fa-file-pdf"></i>
+      </a> -->
+      
+      <a class="icon-link" href="https://arxiv.org/abs/2410.19746">
+        <i class="ai ai-arxiv"></i>
+      </a>
+
+      <a class="icon-link" href="https://github.com/StefanMSchulz/3DTV" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            Thanks to Keunhong Park and Micah Seneshen for sharing their <a
+              href="https://github.com/nerfies/nerfies.github.io">template</a> of this website!
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
