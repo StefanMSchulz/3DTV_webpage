@@ -2,4 +2,4 @@ This is the webpage repository for our 3DTV project: https://stefanmschulz.githu
 
 The Code repository can be found here: https://github.com/StefanMSchulz/3DTV 
 
-The paper can be found here: 
+The paper can be found here: https://arxiv.org/abs/2604.11211

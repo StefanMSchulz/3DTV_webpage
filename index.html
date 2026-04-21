@@ -57,15 +57,15 @@
           <h1 class="title is-1 publication-title">3DTV: A Feedforward Interpolation Network for Real-Time View Synthesis</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://scholar.google.de/citations?user=WEFLPx4AAAAJ&hl=de">Stefan Schulz</a>,</span>
+              <a href="https://scholar.google.de/citations?user=WEFLPx4AAAAJ&hl=de" target="_blank">Stefan Schulz</a>,</span>
             <span class="author-block">
-              <a href="https://cg.cs.uni-bonn.de/people/fernando-edelstein">Fernando Edelstein</a>,</span>
+              <a href="https://cg.cs.uni-bonn.de/people/fernando-edelstein" target="_blank">Fernando Edelstein</a>,</span>
             <span class="author-block">
-              <a href="https://cg.cs.uni-bonn.de/people/hannah-droege">Hannah Dröge</a>,</span>
+              <a href="https://cg.cs.uni-bonn.de/people/hannah-droege" target="_blank">Hannah Dröge</a>,</span>
             <span class="author-block">
-              <a href="https://cg.cs.uni-bonn.de/people/matthias-b-hullin">Matthias B. Hullin</a>,</span>
+              <a href="https://cg.cs.uni-bonn.de/people/matthias-b-hullin" target="_blank">Matthias B. Hullin</a>,</span>
             <span class="author-block">
-              <a href="https://cg.cs.uni-bonn.de/people/markus-plack">Markus Plack</a>
+              <a href="https://cg.cs.uni-bonn.de/people/markus-plack" target="_blank">Markus Plack</a>
             </span>
           </div>
 
@@ -80,38 +80,29 @@
             <!-- TODO -->
           <div class="column has-text-centered">
             <div class="publication-links">
-              <!-- <span class="link-block">
-                <a href="https://arxiv.org/pdf/2410.19746"
-                   class="external-link button is-normal is-rounded is-dark">
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2604.11211"
+                   class="external-link button is-normal is-rounded is-dark" target="_blank">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
                   </span>
                   <span>Paper</span>
                 </a>
-              </span> -->
+              </span>
               <span class="link-block">
                 <a href="https://arxiv.org/abs/2604.11211"
-                   class="external-link button is-normal is-rounded is-dark">
+                   class="external-link button is-normal is-rounded is-dark" target="_blank">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
                   </span>
                   <span>arXiv</span>
                 </a>
               </span>
-              <!--
-              <span class="link-block">
-                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-youtube"></i>
-                  </span>
-                  <span>Video</span>
-                </a>
-              </span>-->
+              
               <!-- Code Link. -->
               <span class="link-block">
                 <a href="https://github.com/StefanMSchulz/3DTV"
-                   class="external-link button is-normal is-rounded is-dark">
+                   class="external-link button is-normal is-rounded is-dark" target="_blank">
                   <span class="icon">
                       <i class="fab fa-github"></i>
                   </span>
@@ -130,11 +121,7 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <!-- <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/Metamizer Teaser.mp4"
-                type="video/mp4">
-      </video> -->
-      <img id="teaser" src="./static/images/teaser_3dtv.png">
+      <img id="teaser" src="./static/images/teaser_3dtv.svg">
       <h2 class="subtitle has-text-centered">
         We present <strong>3DTV</strong>, a real-time method for novel view synthesis from sparse cameras. 
         It combines geometric view selection via Delaunay triangulation (left) with depth-guided feedforward synthesis and coarse-to-fine refinement (center), enabling novel views from only three input cameras at 40 FPS (1k resolution) without per-scene retraining. 
@@ -146,16 +133,377 @@
   </div>
 </section>
 
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+        
+          <p>
+          Real-time free-viewpoint rendering requires balancing multi-camera redundancy with the latency constraints of interactive applications. 
+          We address this challenge by combining lightweight geometry with learning and propose 3DTV, a feedforward network for real-time sparse-view interpolation.
+          A Delaunay-based triplet selection ensures angular coverage for each target view. 
+          Building on this, we introduce a pose-aware depth module that estimates a coarse-to-fine depth pyramid, enabling efficient feature reprojection and occlusion-aware blending.
+          Unlike methods that require scene-specific optimization, 3DTV runs feedforward without retraining, making it practical for AR/VR, telepresence, and interactive applications.
+          Our experiments on challenging multi-view video datasets demonstrate that 3DTV consistently achieves a strong balance of quality and efficiency, outperforming recent real-time novel-view baselines.
+          Crucially, 3DTV avoids explicit proxies, enabling robust rendering across diverse scenes. This makes it a practical solution for low-latency multi-view streaming and interactive rendering. 
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->      
+  </div>
+</section>
+
+
+<style>
+  /* Responsive Overhang Logic */
+  .architecture-overhang {
+    width: 100%;
+    margin-left: 0;
+    transform: none;
+  }
+  
+  .results-overhang {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  @media screen and (min-width: 1600px) {
+    .architecture-overhang {
+      width: 175%;
+      margin-left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .text-overhang {
+      width: 150%;
+      margin-left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .results-overhang {
+      width: 50%;
+      margin-left: 25%;
+    }
+  }
+
+  .video-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .rounded-media {
+    border-radius: 10px;
+  }
+</style>
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3 has-text-centered">Architecture</h2>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div class="column">
+        <div class="columns is-centered">
+          <div class="column content">
+            
+            <div class="architecture-overhang video-container">
+              <img src="./static/images/network.png" style="width:100%; max-width:1750px;" alt="Network Finally">
+              <img src="./static/images/network_details.png" style="width:100%; max-width:1750px; padding-left: 2.2%;" alt="Network Details">
+            </div>
+
+            <div class="content has-text-justified text-overhang" style="margin-top: 2rem;">
+              <div class="columns is-multiline">
+                
+                <div class="column is-12">
+                  <h3 class="title is-4">1. Viewpoint Selection via Projected Delaunay Triangulation</h3>
+                  <p>
+                    To synthesize a query viewpoint $\mathbf{q}$, we select a sparse set of three supporting input cameras. 
+                    While standard $k$-Nearest Neighbor selection often yields poorly conditioned configurations, 
+                    we propose a projection-based strategy leveraging 2D Delaunay triangulation to ensure the query is spatially bracketed by its neighbors.
+                  </p>
+                  <p>
+                    For inward-facing setups, we fit a cylinder to the camera centers and perform a two-stage projection: 
+                    <strong>Radial Normalization</strong> to remove depth bias, followed by <strong>Perspective Mapping</strong> onto a projection plane. 
+                    After computing the triangulation $\mathcal{T}$, we identify the enclosing triangle via the Müller-Trumbore ray intersection algorithm, 
+                    ensuring the selected triplet provides an enclosing view coverage.
+                  </p>
+                </div>
+
+                <div class="column is-12">
+                  <h3 class="title is-4">2. Efficient Feature Extraction Backbone</h3>
+                  <p>
+                    To satisfy real-time constraints, we utilize a hierarchical backbone built upon <strong>GhostNetV2</strong>.
+                    Each block uses a Ghost module where a subset of feature maps is produced via standard convolution, 
+                    while the remaining channels are generated through inexpensive depthwise operations. 
+                    This significantly reduces redundancy without sacrificing representational capacity.
+                  </p>
+                  <p>
+                    The backbone generates a seven-level feature pyramid $\{\mathcal{F}_i^l\}_{l=0}^{6}$.
+                    To compensate for spatial detail loss in deeper layers, we append a Lightweight Atrous Spatial Pyramid Pooling (L-ASPP) module at the coarsest level.
+                    This module aggregates multi-scale context through distinct dilation rates, enriching the representation with global information while maintaining a low computational footprint.
+                  </p>
+                </div>
+
+                <div class="column is-12">
+                  <h3 class="title is-4">3. Recursive Depth Estimation and Refinement</h3>
+                  <p>
+                    We estimate dense depth maps for the novel view using a recursive plane-sweep stereo formulation. 
+                    At the coarsest level, we initialize 32 depth hypotheses uniformly. 
+                    For finer levels, the search space is refined using a local window around the upsampled prediction from the previous stage: 
+                    $\mathcal{D}^l = \{ D^{l+1}_{\uparrow} + \delta \}$.
+                  </p>
+                  <p>
+                    To preserve matching cues, we construct grouped correlation volumes. 
+                    Feature channels are partitioned into $G$ groups, and group-wise correlations are computed at each depth hypothesis. 
+                    This volume is processed alongside warped foreground masks and upscaled latents $Z^{l+1}$ from the feature projector which acts as a guiding self-prior. 
+                    A shared decoder then regresses a depth residual $\Delta^l$ and an opacity map $A^l$, allowing for sub-pixel accuracy through iterative updates.
+                  </p>
+                </div>
+
+                <div class="column is-12">
+                  <h3 class="title is-4">4. Hierarchical Feature Fusion and Synthesis</h3>
+                  <p>
+                    The final stage warps source features into the target frame using the estimated depth $D^l$.
+                    To account for occlusions and view-dependent effects, 
+                    a confidence prediction network generates per-pixel weights $W_i^l$ based on the warped features and geometric metadata (azimuth and elevation).
+                  </p>
+                  <p>
+                    Image synthesis is performed by a strictly hierarchical decoder. 
+                    At each level, the fused features are combined with the refined depth, opacity maps, and upsampled latents from coarser levels. 
+                    This formulation ensures that global structures estimated at low resolutions effectively regularize high-frequency detail synthesis at finer scales. 
+                    The final latent $Z^0$ is then mapped to the RGB output $I_{\text{novel}}$ via a lightweight refinement head.
+                  </p>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3 has-text-centered">Results</h2>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">   
+      <div class="content has-text-justified">
+        <p>
+          3DTV is able to recover flickering and projection ambiguities that arise when using 2-camera setups by using 3 cameras.
+          While it still lacks the high fidelity of methods that use all available cameras for reconstruction it is able to mimic the stability at a fraction of the computational cost and runs in real-time.
+          In turn it produces slightly more blurry results and removes objects from a novel view too soon if objects start to stack behind one another in the target view but are not yet fully covered by the foremost subject.
+        </p>
+      </div>
+      
+      <br>
+      <div class="video-container">
+        <video id="dollyzoom" autoplay controls muted loop playsinline class="rounded-media" style="max-width:1000px; width:100%;">
+          <source src="./static/videos/comparison_static.mp4" type="video/mp4">
+        </video>
+      </div>
+    
+      <br><br>
+      <h3 class="title is-4 has-text-centered">Orbital Camera Move Along Static Scenes</h3> 
+      
+      <div class="columns is-centered">
+        <div class="column">
+          <div class="content">
+            <video autoplay controls muted loop playsinline class="rounded-media" style="width:100%;">
+              <source src="./static/videos/ours_orbit_1.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+        <div class="column">
+          <div class="content">
+            <video autoplay controls muted loop playsinline class="rounded-media" style="width:100%;">
+              <source src="./static/videos/ours_orbit_2.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+      
+      <br><br>
+      <h3 class="title is-4 has-text-centered">Orbital Camera Move Along Dynamic Scenes</h3>
+      
+      <div class="columns is-centered">
+        <div class="column">
+          <div class="content">
+            <video autoplay controls muted loop playsinline class="rounded-media" style="width:100%;">
+              <source src="./static/videos/ours_dynamic_1.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+        <div class="column">
+          <div class="content">
+            <video autoplay controls muted loop playsinline class="rounded-media" style="width:100%;">
+              <source src="./static/videos/ours_dynamic_2.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div> 
+      
+      <p class="has-text-centered mt-4">
+        For more results please check the paper. More videos will be added soon!
+      </p>
+      
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3" style="text-align:center">Performance Analysis</h2>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="content">
+      <div class="table-container">
+        <table class="table is-fullwidth is-narrow is-hoverable" style="border-top: 2px solid black; border-bottom: 2px solid black;">
+          <thead>
+            <tr>
+              <th rowspan="2" style="vertical-align: middle; border-bottom: 1px solid #dbdbdb;">Method</th>
+              <th colspan="3" class="has-text-centered" style="border-bottom: 1px solid #dbdbdb;">1024 $\times$ 1024</th>
+              <th colspan="3" class="has-text-centered" style="border-bottom: 1px solid #dbdbdb;">2048 $\times$ 2048</th>
+            </tr>
+            <tr>
+              <th class="has-text-centered" style="border-bottom: 1px solid #dbdbdb;">Mem. $\downarrow$</th>
+              <th class="has-text-centered" style="border-bottom: 1px solid #dbdbdb;">Train $\downarrow$</th>
+              <th class="has-text-centered" style="border-bottom: 1px solid #dbdbdb;">Inference $\downarrow$</th>
+              <th class="has-text-centered" style="border-bottom: 1px solid #dbdbdb;">Mem. $\downarrow$</th>
+              <th class="has-text-centered" style="border-bottom: 1px solid #dbdbdb;">Train $\downarrow$</th>
+              <th class="has-text-centered" style="border-bottom: 1px solid #dbdbdb;">Inference $\downarrow$</th>
+            </tr>
+          </thead>
+          <tbody style="font-family: 'Noto Sans', sans-serif; font-size: 0.95rem;">
+            <tr>
+              <td>Nerfacto-big* (x)</td>
+              <td class="has-text-centered">12.1 GB</td>
+              <td class="has-text-centered">100.3 min</td>
+              <td class="has-text-centered">7.8 ms</td>
+              <td class="has-text-centered">12.8 GB</td>
+              <td class="has-text-centered">108.3 min</td>
+              <td class="has-text-centered">9.6 ms</td>
+            </tr>
+            <tr>
+              <td>Splatfacto-big* (x)</td>
+              <td class="has-text-centered">1.2 GB</td>
+              <td class="has-text-centered">11.2 min</td>
+              <td class="has-text-centered">1.3 ms</td>
+              <td class="has-text-centered">2.6 GB</td>
+              <td class="has-text-centered">13.1 min</td>
+              <td class="has-text-centered">1.8 ms</td>
+            </tr>
+            <tr>
+              <td>FrugalNeRF* (3)</td>
+              <td class="has-text-centered">20.2 GB</td>
+              <td class="has-text-centered">12.3 min</td>
+              <td class="has-text-centered">13.2 ms</td>
+              <td class="has-text-centered">20.4 GB</td>
+              <td class="has-text-centered">16.2 min</td>
+              <td class="has-text-centered">16.5 ms</td>
+            </tr>
+            <tr style="border-top: 1px solid #dbdbdb;">
+              <td>ENeRF (3)</td>
+              <td class="has-text-centered">8.1 GB</td>
+              <td class="has-text-centered">0 ms</td>
+              <td class="has-text-centered">97.3 ms</td>
+              <td class="has-text-centered">13.1 GB</td>
+              <td class="has-text-centered">0 ms</td>
+              <td class="has-text-centered">233.7 ms</td>
+            </tr>
+            <tr>
+              <td>GPS-Gaussian (2)</td>
+              <td class="has-text-centered">3.2 GB</td>
+              <td class="has-text-centered">0 ms</td>
+              <td class="has-text-centered">73.7 ms</td>
+              <td class="has-text-centered">8.1 GB</td>
+              <td class="has-text-centered">0 ms</td>
+              <td class="has-text-centered">119.2 ms</td>
+            </tr>
+            <tr>
+              <td>GPS-Gaussian+ (2)</td>
+              <td class="has-text-centered">3.4 GB</td>
+              <td class="has-text-centered">0 ms</td>
+              <td class="has-text-centered">72.4 ms</td>
+              <td class="has-text-centered">8.2 GB</td>
+              <td class="has-text-centered">0 ms</td>
+              <td class="has-text-centered">154.9 ms</td>
+            </tr>
+            <tr>
+              <td>RIFTCast (x)</td>
+              <td class="has-text-centered">5.7 GB</td>
+              <td class="has-text-centered">0 ms</td>
+              <td class="has-text-centered">47.3 ms</td>
+              <td class="has-text-centered">6.2 GB</td>
+              <td class="has-text-centered">0 ms</td>
+              <td class="has-text-centered">50.7 ms</td>
+            </tr>
+            <tr style="border-top: 1px solid black;">
+              <td>Ours (3)</td>
+              <td class="has-text-centered">7.1 GB</td>
+              <td class="has-text-centered">0 ms</td>
+              <td class="has-text-centered">117.1 ms</td>
+              <td class="has-text-centered">20.6 GB</td>
+              <td class="has-text-centered">0 ms</td>
+              <td class="has-text-centered">542.7 ms</td>
+            </tr>
+            <tr style="background-color: #ebfffc; border: 2px solid #00d1b2;">
+              <td><strong>3DTV (Ours<sup>RT</sup>) (3)</strong></td>
+              <td class="has-text-centered"><strong>2.2 GB</strong></td>
+              <td class="has-text-centered"><strong>0 ms</strong></td>
+              <td class="has-text-centered"><strong>24.5 ms</strong></td>
+              <td class="has-text-centered"><strong>8.0 GB</strong></td>
+              <td class="has-text-centered"><strong>0 ms</strong></td>
+              <td class="has-text-centered"><strong>109.5 ms</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="is-size-6">
+        Memory and speed comparisons conducted on a single NVIDIA RTX 4090 GPU. * denotes optimization-based methods requiring per-scene training. 
+        (x) indicates how many views each method is using per step with x indicating using all available views. 
+        <strong>Ours<sup>RT</sup></strong> denotes our TensorRT-optimized deployment.
+      </p>
+    </div>
+  </div>
+</section>
+
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <!-- <pre><code>@inproceedings{w2024metamizer,
-	title={Metamizer: a versatile neural optimizer for fast and accurate physics simulations},
-	author={Nils Wandel and Stefan Schulz and Reinhard Klein},
-	booktitle={International Conference on Learning Representations (ICLR)},
-	year={2025}
-}</code></pre> -->
+    <h2 class="title" style="text-align:center">BibTeX</h2>
+    <pre><code>misc{schulz20263dtvfeedforwardinterpolationnetwork,
+      title={3DTV: A Feedforward Interpolation Network for Real-Time View Synthesis}, 
+      author={Stefan Schulz and Fernando Edelstein and Hannah Dröge and Matthias B. Hullin and Markus Plack},
+      year={2026},
+      eprint={2604.11211},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2604.11211}, 
+}</code></pre>
   </div>
 </section>
 
@@ -163,15 +511,15 @@
 <footer class="footer">
   <div class="container">
     <div class="content has-text-centered">
-      <!-- <a class="icon-link" href="https://arxiv.org/pdf/2410.19746">
+      <a class="icon-link" href="https://arxiv.org/pdf/2604.11211" target="_blank">
         <i class="fas fa-file-pdf"></i>
-      </a> -->
+      </a>
       
-      <a class="icon-link" href="https://arxiv.org/abs/2410.19746">
+      <a class="icon-link" href="https://arxiv.org/abs/2604.11211" target="_blank">
         <i class="ai ai-arxiv"></i>
       </a>
 
-      <a class="icon-link" href="https://github.com/StefanMSchulz/3DTV" class="external-link" disabled>
+      <a class="icon-link" href="https://github.com/StefanMSchulz/3DTV" class="external-link" disabled target="_blank">
         <i class="fab fa-github"></i>
       </a>
     </div>
